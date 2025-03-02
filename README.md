@@ -1,4 +1,4 @@
-# ML1676
+![HackedFile](https://github.com/user-attachments/assets/b9a65842-c032-4a24-87c7-d4389f893e16)# ML1676
 Samsung ML1676 MAC Driver
 Tested on 
 
@@ -49,6 +49,7 @@ code SamsungPrinterDrivers/Distribution
 ```
 
 add ```return true;``` at the begining of the function ```installationCheck()``` and ``` commonRequirments()``` to bypass the checkings.
+![HackedFile](https://github.com/user-attachments/assets/d82847df-0cc4-4937-9672-37a386d9b56c)
 
 Step3:
 ```
