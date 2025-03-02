@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<installer-gui-script minSpecVersion='1'>
+
+    <options customize='never'/>
+    <options hostArchitectures='ppc,i386'/>    
+
+    <platforms>
+        <client arch="ppc,i386"/>
+        <server arch="ppc,i386"/>
+    </platforms>    
+        
+    <title>SU_TITLE</title>
+	<welcome file='Welcome.rtf'/>
+	<license file="License.rtf" sla="EA1050"/>
+    
+    <choices-outline>
+        <line choice='manual'/>
+    </choices-outline>
+    
+    <choice id='manual'>
+        <pkg-ref id='manual' auth='Root'>#SamsungPrinterDrivers.pkg</pkg-ref>
+    </choice>
+    
+    <volume-check script='volumeCheck()'/>
+    <installation-check script='installationCheck()'/>
+
+    <script>
+	
+		function installationCheck() 
+		{
+            return true;
+	        if (system.env.OS_INSTALL == 1) {
+	            return true;
+	        }
+        
+	        if (system.compareVersions(system.version.ProductVersion, '10.6.1') &gt;= 0 &amp;&amp;
+				system.compareVersions(system.version.ProductVersion, '11.0') == -1) {
+	            return true;
+	        }
+        
+	        my.result.type = 'Fatal';
+	        my.result.message = system.localizedString('ERROR_INSTALL');
+	        return(false);			
+		}
+
+        function volumeCheck()
+        {
+            if (system.env.OS_INSTALL == 1) {
+                return true;
+            }
+            
+            if (commonRequirements()) {
+                return true;
+            }
+            
+            my.result.type = 'Fatal';
+            my.result.message = system.localizedString('ERROR_INSTALL');
+            return(false);
+        }
+        
+        function commonRequirements()
+        {
+            return true;
+            try {
+                // 10.6 only
+                
+				if(-1 == system.compareVersions(my.target.systemVersion.ProductVersion, '10.6')) {
+                    return false;
+                }
+
+				if(-1 != system.compareVersions(my.target.systemVersion.ProductVersion, '11.0')) {
+                    return false;
+                }
+				
+
+            }
+            catch(err) { return false; }
+
+            return true;
+        }
+
+    </script>
+
+	<pkg-ref id='manual' installKBytes='33712' version='10.6.0.1.1.1238328574'/>
+
+	<pkg-ref id='manual' installKBytes='33712' version='10.6.0.1.1.1238328574'/>
+</installer-gui-script>
+	
