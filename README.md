@@ -1,11 +1,13 @@
 # ML1676
 Samsung ML1676 MAC Driver
 Tested on macOS version：
+
 ‘’‘
 ProductName:		macOS
 ProductVersion:		15.3.1
 BuildVersion:		24D70
 ’‘’
+
 Quick solution：
 
 Step1: Download the pkg dirver and install it
