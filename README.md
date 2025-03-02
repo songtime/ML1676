@@ -1,4 +1,4 @@
-![HackedFile](https://github.com/user-attachments/assets/b9a65842-c032-4a24-87c7-d4389f893e16)# ML1676
+# ML1676
 Samsung ML1676 MAC Driver
 Tested on 
 
